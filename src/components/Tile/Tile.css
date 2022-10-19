@@ -1,12 +1,18 @@
- .tile{
-    width: 100px;
-    height: 100px;
+.tile {
+  display: grid;
+  place-content: center;
+  width: 100px;
+  height: 100px;
 }
 
- .white-tile{
-background-color: #ebecd0 ;
+.white-tile {
+  background-color: #ebecd0;
 }
 
- .black-tile{
-background-color: #779556;
+.black-tile {
+  background-color: #779556;
+}
+
+.tile img {
+  width: 80px;
 }
