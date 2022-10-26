@@ -5,8 +5,6 @@ interface Props {
   number: number;
 }
 
-// "assets/images/pawn_b.png"
-
 export default function Tile({ number, image }: Props) {
   if (number % 2 === 0) {
     return (
