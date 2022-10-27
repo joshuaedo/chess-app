@@ -40,25 +40,6 @@
   }
 }
 
-
-
-
-/* Small devices (landscape phones, 576px and above till next break point) */
-@media (min-width: 576px) {
-  .tile {
-    width: 2.5rem;
-    height: 2.5rem;
-  }
-  .tile .chess-piece {
-    width: 2.5rem;
-    height: 2.5rem;
-    background-size: 2rem;
-  }
-  .tile img {
-    width: 2rem;
-  }
-}
-
 /* Medium devices (tablets, 768px and above till next break point) */
 @media (min-width: 768px) {
   .tile {
