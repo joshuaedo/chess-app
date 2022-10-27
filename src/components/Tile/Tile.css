@@ -1,16 +1,11 @@
 .tile {
   display: grid;
   place-content: center;
-  width: 100px;
-  height: 100px;
 }
 
 .tile .chess-piece {
-  width: 100px;
-  height: 100px;
   background-repeat: no-repeat;
   background-position: center;
-  background-size: 80px;
 }
 
 .tile .chess-piece:hover {
@@ -22,13 +17,76 @@
 }
 
 .white-tile {
-  background-color: #FFFDD0;
+  background-color: rgb(227, 193, 111);
 }
 
 .black-tile {
-  background-color: #443022;
+  background-color: rgb(184, 139, 74);
 }
 
-.tile img {
-  width: 80px;
+/* Smallest devices (landscape phones, 576px and above till next break point) */
+@media (min-width: 320px) {
+  .tile {
+    width: 2.5rem;
+    height: 2.5rem;
+  }
+  .tile .chess-piece {
+    width: 2.5rem;
+    height: 2.5rem;
+    background-size: 2rem;
+  }
+  .tile img {
+    width: 2rem;
+  }
+}
+
+
+
+
+/* Small devices (landscape phones, 576px and above till next break point) */
+@media (min-width: 576px) {
+  .tile {
+    width: 2.5rem;
+    height: 2.5rem;
+  }
+  .tile .chess-piece {
+    width: 2.5rem;
+    height: 2.5rem;
+    background-size: 2rem;
+  }
+  .tile img {
+    width: 2rem;
+  }
+}
+
+/* Medium devices (tablets, 768px and above till next break point) */
+@media (min-width: 768px) {
+  .tile {
+    width: 3.125rem;
+    height: 3.125rem;
+  }
+  .tile .chess-piece {
+    width: 3.125rem;
+    height: 3.125rem;
+    background-size: 2.5rem;
+  }
+  .tile img {
+    width: 2.5rem;
+  }
+}
+
+/* Large devices (desktops, 992px and above till next break point) */
+@media (min-width: 992px) {
+  .tile {
+    width: 3.75rem;
+    height: 3.75rem;
+  }
+  .tile .chess-piece {
+    width: 3.75rem;
+    height: 3.75rem;
+    background-size: 3rem;
+  }
+  .tile img {
+    width: 3rem;
+  }
 }
