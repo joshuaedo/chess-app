@@ -4,7 +4,7 @@ import {
   Piece,
   Position,
   samePosition,
-} from "../Constants";
+} from "../../Constants";
 
 export default class Referee {
   tileIsEmptyOrOccupiedByOpponent(
