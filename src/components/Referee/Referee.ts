@@ -165,39 +165,130 @@ export default class Referee {
     } else if (type === PieceType.BISHOP) {
       //Movement and attack logic for the bishop
 
-      //Up right movement
-      for(let i = 1; i < 8; i++)
-      {
-        if(desiredPosition.x - initialPosition.x === i && desiredPosition.y - initialPosition.y === i) {
-          console.log(`Moving up right ${i} squares`);
-          break;
+      for (let i = 1; i < 8; i++) {
+        //Up right movement
+        if (
+          desiredPosition.x > initialPosition.x &&
+          desiredPosition.y > initialPosition.y
+        ) {
+          let passedPosition: Position = {
+            x: initialPosition.x + i,
+            y: initialPosition.y + i,
+          };
+          //Check if the tile is the destination tile
+          if (
+            passedPosition.x === desiredPosition.x &&
+            passedPosition.y === desiredPosition.y
+          ) {
+            //Dealing with destination tile
+            if (
+              this.tileIsEmptyOrOccupiedByOpponent(
+                passedPosition,
+                boardState,
+                team
+              )
+            ) {
+              return true;
+            }
+          } else {
+            //Dealing with passing tile
+            if (this.tileIsOccupied(passedPosition, boardState)) {
+              break;
+            }
+          }
         }
-      }
 
-      //Bottom right movement
-      for(let i = 1; i < 8; i++)
-      {
-        if(desiredPosition.x - initialPosition.x === i && desiredPosition.y - initialPosition.y === -i) {
-          console.log(`Moving down right ${i} squares`);
-          break;
+        //Bottom right movement
+        if (
+          desiredPosition.x > initialPosition.x &&
+          desiredPosition.y < initialPosition.y
+        ) {
+          let passedPosition: Position = {
+            x: initialPosition.x + i,
+            y: initialPosition.y - i,
+          };
+          //Check if the tile is the destination tile
+          if (
+            passedPosition.x === desiredPosition.x &&
+            passedPosition.y === desiredPosition.y
+          ) {
+            //Dealing with destination tile
+            if (
+              this.tileIsEmptyOrOccupiedByOpponent(
+                passedPosition,
+                boardState,
+                team
+              )
+            ) {
+              return true;
+            }
+          } else {
+            if (this.tileIsOccupied(passedPosition, boardState)) {
+              break;
+            }
+          }
         }
-      }
 
-      //Bottom left movement
-      for(let i = 1; i < 8; i++)
-      {
-        if(desiredPosition.x - initialPosition.x === -i && desiredPosition.y - initialPosition.y === -i) {
-          console.log(`Moving down left ${i} squares`);
-          break;
+        //Bottom left movement
+        if (
+          desiredPosition.x < initialPosition.x &&
+          desiredPosition.y < initialPosition.y
+        ) {
+          let passedPosition: Position = {
+            x: initialPosition.x - i,
+            y: initialPosition.y - i,
+          };
+          //Check if the tile is the destination tile
+          if (
+            passedPosition.x === desiredPosition.x &&
+            passedPosition.y === desiredPosition.y
+          ) {
+            //Dealing with destination tile
+            if (
+              this.tileIsEmptyOrOccupiedByOpponent(
+                passedPosition,
+                boardState,
+                team
+              )
+            ) {
+              return true;
+            }
+          } else {
+            if (this.tileIsOccupied(passedPosition, boardState)) {
+              break;
+            }
+          }
         }
-      }
 
-      //Top left movement
-      for(let i = 1; i < 8; i++)
-      {
-        if(desiredPosition.x - initialPosition.x === -i && desiredPosition.y - initialPosition.y === i) {
-          console.log(`Moving top left ${i} squares`);
-          break;
+        //Top left movement
+        if (
+          desiredPosition.x < initialPosition.x &&
+          desiredPosition.y > initialPosition.y
+        ) {
+          let passedPosition: Position = {
+            x: initialPosition.x - i,
+            y: initialPosition.y + i,
+          };
+          //Check if the tile is the destination tile
+          if (
+            passedPosition.x === desiredPosition.x &&
+            passedPosition.y === desiredPosition.y
+          ) {
+            //Dealing with destination tile
+            if (
+              this.tileIsEmptyOrOccupiedByOpponent(
+                passedPosition,
+                boardState,
+                team
+              )
+            ) {
+              return true;
+            }
+          } else {
+            if (this.tileIsOccupied(passedPosition, boardState)) {
+              break;
+            }
+          }
         }
       }
     }
