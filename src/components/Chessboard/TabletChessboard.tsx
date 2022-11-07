@@ -1,5 +1,5 @@
 import { useRef, useState } from "react";
-import "./Chessboard.css";
+import "./TabletChessboard.css";
 import Tile from "../Tile/Tile";
 import Referee from "../Referee/Referee";
 import {
@@ -14,7 +14,7 @@ import {
   samePosition,
 } from "../../Constants";
 
-export default function Chessboard() {
+export default function TabletChessboard() {
   const [activePiece, setActivePiece] = useState<HTMLElement | null>(null);
   const [grabPosition, setGrabPosition] = useState<Position>({ x: -1, y: -1 });
   const [pieces, setPieces] = useState<Piece[]>(initialBoardState);
@@ -27,7 +27,7 @@ export default function Chessboard() {
     if (element.classList.contains("chess-piece") && chessboard) {
       const grabX = Math.floor((e.clientX - chessboard.offsetLeft) / GRID_SIZE);
       const grabY = Math.abs(
-        Math.ceil((e.clientY - chessboard.offsetTop - 480) / GRID_SIZE)
+        Math.ceil((e.clientY - chessboard.offsetTop - 400) / GRID_SIZE)
       );
       setGrabPosition({ x: grabX, y: grabY });
 
@@ -40,16 +40,16 @@ export default function Chessboard() {
       setActivePiece(element);
     }
   }
-
-  function movePiece(e: React.MouseEvent) {
+  
+   function movePiece(e: React.MouseEvent) {
     const chessboard = chessboardRef.current;
     if (activePiece && chessboard) {
-      const minX = chessboard.offsetLeft - 15;
-      const minY = chessboard.offsetTop - 15;
-      const maxX = chessboard.offsetLeft + chessboard.clientWidth - 45;
-      const maxY = chessboard.offsetTop + chessboard.clientHeight - 45;
-      const x = e.clientX - 30;
-      const y = e.clientY - 30;
+      const minX = chessboard.offsetLeft - 10.416666667;
+      const minY = chessboard.offsetTop - 10.416666667;
+      const maxX = chessboard.offsetLeft + chessboard.clientWidth - 31.25;
+      const maxY = chessboard.offsetTop + chessboard.clientHeight - 31.25;
+      const x = e.clientX - 20.833333333;
+      const y = e.clientY - 20.833333333;
       activePiece.style.position = "absolute";
 
       //If x is smaller than minimum amount
@@ -85,7 +85,7 @@ export default function Chessboard() {
     if (activePiece && chessboard) {
       const x = Math.floor((e.clientX - chessboard.offsetLeft) / GRID_SIZE);
       const y = Math.abs(
-        Math.ceil((e.clientY - chessboard.offsetTop - 480) / GRID_SIZE)
+        Math.ceil((e.clientY - chessboard.offsetTop - 400) / GRID_SIZE)
       );
 
       const currentPiece = pieces.find((p) =>
