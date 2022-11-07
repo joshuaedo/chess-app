@@ -1,2 +1,2 @@
-export * from './Piece';
-export * from './Position';
+export * from "./Piece";
+export * from "./Position";
