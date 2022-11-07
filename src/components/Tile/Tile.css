@@ -1,73 +1,51 @@
 .tile {
-  display: grid;
-  place-content: center;
+    display: grid;
+    place-content: center;
+    width: 100px;
+    height: 100px;
 }
 
 .tile .chess-piece {
-  background-repeat: no-repeat;
-  background-position: center;
+    width: 100px;
+    height: 100px;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 80px;
 }
 
 .tile .chess-piece:hover {
-  cursor: grab;
+    cursor: grab;
 }
 
 .tile .chess-piece:active {
-  cursor: grabbing;
-}
-
-.white-tile {
-  background-color: rgb(227, 193, 111);
+    cursor: grabbing;
 }
 
 .black-tile {
-  background-color: rgb(184, 139, 74);
+    background-color: #779556;
 }
 
-/* Smallest devices (landscape phones, 576px and above till next break point) */
-@media (min-width: 320px) {
-  .tile {
-    width: 2.5rem;
-    height: 2.5rem;
-  }
-  .tile .chess-piece {
-    width: 2.5rem;
-    height: 2.5rem;
-    background-size: 2rem;
-  }
-  .tile img {
-    width: 2rem;
-  }
+.white-tile {
+    background-color: #ebecd0;
 }
 
-/* Medium devices (tablets, 768px and above till next break point) */
-@media (min-width: 768px) {
-  .tile {
-    width: 3.125rem;
-    height: 3.125rem;
-  }
-  .tile .chess-piece {
-    width: 3.125rem;
-    height: 3.125rem;
-    background-size: 2.5rem;
-  }
-  .tile img {
-    width: 2.5rem;
-  }
+.tile img {
+    width: 80px;
 }
 
-/* Large devices (desktops, 992px and above till next break point) */
-@media (min-width: 992px) {
-  .tile {
-    width: 3.75rem;
-    height: 3.75rem;
-  }
-  .tile .chess-piece {
-    width: 3.75rem;
-    height: 3.75rem;
-    background-size: 3rem;
-  }
-  .tile img {
-    width: 3rem;
-  }
+.tile-highlight:not(.chess-piece-tile)::before {
+    content: " ";
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    background-color: rgba(0, 0, 0, 0.4);
+}
+
+.tile-highlight.chess-piece-tile::before {
+    position: absolute;
+    content: " ";
+    width: 90px;
+    height: 90px;
+    border: 5px solid rgba(0, 0, 0, 0.4);
+    border-radius: 50%;
 }
